@@ -184,7 +184,7 @@ public class Platform {
     public static void main(String[] args) {
         //Test cases
         Platform platform = new Platform();
-        String file = "C:\\Users\\eduar\\Downloads\\archive\\YoutubeDTSV2.csv";
+        String file = "D:\\UNIVERSIDAD\\EDA\\Tarea 3 LAB EDA\\YoutubeDTSV2.csv";
         platform.insertFromFile(file);
         platform.iterativeReverse(platform.begin());
         platform.iterativePrint(platform.begin());

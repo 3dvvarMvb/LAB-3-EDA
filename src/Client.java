@@ -8,10 +8,8 @@ public class Client {
             System.out.println("La lista está vacía");
             return;
         }
-
         boolean maxOrder = true;
         boolean exit = false;
-
         Video actual;
         actual = pqMax.getTop();
 
@@ -30,11 +28,15 @@ public class Client {
                         return;
                     }
                     System.out.println("Siguiente vídeo...");
+                    pqMax.getTop();
+                    pqMax.delete();
                     //Completar----------------------------------------------------------------
-                    actual.reproduce();
                 }
                 case "2" -> {
                     System.out.println("Cambiando orden...");
+                    MinHeap pqMin=null;
+                    pqMin.insert(actual);
+                    actual=pqMin.getMin();
                     //Completar----------------------------------------------------------------
                 }
                 case "3" -> {
@@ -51,7 +53,7 @@ public class Client {
     public static void main(String[] args) {
         System.out.println("Cargando datos...");
         Platform platform = new Platform();
-        String file = "YoutubeDTSV2.csv";
+        String file = "D:\\UNIVERSIDAD\\EDA\\Tarea 3 LAB EDA\\YoutubeDTSV2.csv";
         platform.insertFromFile(file);
         Video actualVideo = platform.begin();
         MaxHeap pqMax = new MaxHeap(1000);
@@ -100,7 +102,13 @@ public class Client {
                     case "4" -> platform.iterativePrint(actualVideo);
                     case "5" -> {
                         System.out.println("Enviar a lista de 'ver más tarde'");
-                        //Completar----------------------------------------------------------------
+                        pqMax.insert(actualVideo);
+                        if (actualVideo.getNext() != null) {
+                            System.out.println("Siguiente video...");
+                            actualVideo = actualVideo.getNext();
+                        } else {
+                            System.out.println("No quedan más videos");
+                        }
                     }
                     case "6" -> {
                         System.out.println("Ir a la lista de reproducción 'ver más tarde'");
