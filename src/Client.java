@@ -28,16 +28,14 @@ public class Client {
                         return;
                     }
                     System.out.println("Siguiente vídeo...");
-                    pqMax.getTop();
+                    actual=pqMax.getTop();
                     pqMax.delete();
-                    //Completar----------------------------------------------------------------
                 }
                 case "2" -> {
                     System.out.println("Cambiando orden...");
                     MinHeap pqMin=null;
                     pqMin.insert(actual);
                     actual=pqMin.getMin();
-                    //Completar----------------------------------------------------------------
                 }
                 case "3" -> {
                     System.out.println("Volviendo a menú inicial");
@@ -113,7 +111,6 @@ public class Client {
                     case "6" -> {
                         System.out.println("Ir a la lista de reproducción 'ver más tarde'");
                         seeLaterMenu(br, pqMax);
-                        //Completar----------------------------------------------------------------
                     }
                     case "7" -> exit = true;
                     default -> System.out.println("Ingrese opción válida");
